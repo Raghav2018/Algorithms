@@ -12,12 +12,8 @@ namespace Fundamental_Algorithms
         {
             Console.WriteLine("HEAP SORT");
             Console.WriteLine("Unsorted array " + string.Join(",", input));
-            //Build-Max-Heap
             int heapSize = input.Length;
-            for (int i = (heapSize - 1) / 2; i >= 0; i--)
-            {
-                MaxHeapify(input, heapSize, i);
-            }   
+            BuildMaxHeap(input,heapSize);
 
             for (int i = input.Length - 1; i > 0; i--)
             {
@@ -30,6 +26,15 @@ namespace Fundamental_Algorithms
                 MaxHeapify(input, heapSize, 0);
             }
             Console.WriteLine("Sorted array " + string.Join(",", input));
+        }
+
+        private static void BuildMaxHeap(int[] input, int heapSize)
+        {
+            //Build-Max-Heap
+            for (int i = (heapSize - 1) / 2; i >= 0; i--)
+            {
+                MaxHeapify(input, heapSize, i);
+            }
         }
 
         private static void MaxHeapify(int[] input, int heapSize, int index)
